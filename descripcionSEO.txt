@@ -1,0 +1,7 @@
+Descripcion SEO:
+
+1. Cambie el title en todos los html.
+2. Agregue keywords en todos los html, los fui modificando de acuerdo al producto que se muestra en cada uno, excepto en index.html y contacto.html donde intento abarcar todas las posibles.
+3. Agregue la descripcion del sitio detallando la actividad principal del mismo, en todos los html.
+4. Cambie en contacto.html los h1 que tenia de mas, por h2 (en el caso de el titulo de "Contactanos" y "donde estamos")
+5. cambie a h2 el footer de todos los html del sitio.

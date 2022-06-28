@@ -1,0 +1,155 @@
+//importo estilos SCSS
+@import "styleIndex";
+@import "bloques";
+@import "carrito";
+
+//variables
+$fuente:Verdana, Geneva, Tahoma, sans-serif;
+$ancho: 100%;
+$alto: 100vh;
+$turquesa: rgb(13, 199, 206);
+$turquesaOpacidad: rgb(13, 199, 206, 90%);
+$marron: rgb(172, 97, 0);
+$blanco: white; 
+
+// extends
+.flex{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-items:center ;
+}
+
+//mixins
+@mixin style-menu ($margins, $paddings, $borders){
+    margin: $margins;
+    padding: $paddings;
+    border: $borders;
+
+}
+
+@mixin secciones ($m-top, $m-botton, $p-top, $p-botton){
+    margin-top: $m-top;
+    margin-bottom: $m-botton;
+    padding-top: $p-top;
+    padding-bottom: $p-botton;    
+}
+
+@mixin colores ($bgc,$col) {
+    background-color: $bgc; 
+    color: $col;
+    
+}
+// maps
+$mapa:(
+    whatsapp: green,
+    mail: red,
+    instagram: purple
+
+);
+
+@each $redes, $colorcito in $mapa {
+    .colorRedes-#{$redes} {
+        background-color: $colorcito;
+        text-align: center;
+    }
+    
+}
+
+/* header + menu */
+header{    
+    background-image: linear-gradient(to right, rgb(153 114 59) 60%, $blanco);
+    display: flex;
+    align-items: flex-end;
+    nav{        
+        li{
+            @include style-menu(0%,10px 13px ,1px solid $blanco);
+            @include colores(rgb(245 235 220), $blanco );
+            font-family: $fuente;
+            font-size:larger;
+            list-style-type: none;        
+            
+            &:hover{
+                border-left: 3px solid $turquesa;
+                border-bottom: 5px solid $turquesa;
+                color: $blanco;
+                list-style-type: none;
+            }
+            
+            h1{   
+                a{
+                    font-family: $fuente;
+                }
+            }
+        }
+    }
+}
+/* fin header + menu */
+
+body{
+    margin: 0;
+    width: $ancho;
+    height: $alto;
+    min-width: 290px;
+}
+
+/* banner pages */
+#imageTittle {
+    background-image: url(../img/showroom.png);
+    background-repeat: repeat-x;
+    @include secciones(1vh,1vh,8vh,8vh);    
+  
+    .tittle{
+        @extend .flex;
+        font-size: x-large;
+        padding: 2vh;
+        @include colores($turquesaOpacidad, $marron);
+    }
+
+    .redSocial{       
+        /* conocenos.html */    
+        display: flex;
+        @extend .flex;
+        @include colores($turquesaOpacidad, $blanco);
+        width: $ancho;
+        a{
+            text-decoration: none;
+            color: $blanco;
+            transition: all 300ms ease;
+                &:hover {
+                    color: $turquesa;
+                }
+        }
+        
+        .tamBoxRedes{    
+            margin:3%; 
+            width: 10vw;
+            height: 10vh;
+            min-width: 80px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+    } 
+    
+}
+.seccion{    
+    margin: 30px;
+    justify-content: center;
+    font-size: x-large;
+    padding: 1vh;
+    text-align: center;
+    color: $turquesa;
+    border-style:dashed;
+    border-color: $marron;
+    @include secciones(10vh,10vh,2vh,2vh);                
+}
+
+/* fin banner pages */ 
+
+footer{
+    color: $turquesa;
+    text-align: center;
+    position: fixed;
+    display: contents;
+}

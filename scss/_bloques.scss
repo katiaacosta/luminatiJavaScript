@@ -1,0 +1,41 @@
+.bloque{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 40px;
+    animation-duration: 1s; 
+    
+    .borde{
+        border-radius: 30px;
+        padding: 20px;
+        margin: 20px;
+        border-style: outset;
+        border-color: rgb(13, 199, 206);     
+    }
+    
+    .contacto-tamanio{
+        display: grid; 
+    }
+
+    .mapa-tamanio {
+        padding: 5vh;
+        height: 30rem;
+    }
+    
+    .sobre-nosotros{
+        padding: 10px;
+        color: rgb(172, 97, 0);
+    }
+
+    .titulo{
+        text-align: center;
+        font-size: xx-large;
+        font-weight: bold;
+    }
+
+    .cuerpo{
+        text-align: left;
+        font-size: x-large;
+    }
+    
+}

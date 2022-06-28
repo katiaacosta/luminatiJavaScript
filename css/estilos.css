@@ -1,0 +1,243 @@
+.flyerIndex {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Carrousel index.html */
+.galeriaIndex {
+  width: 50%;
+  border-style: dotted;
+  border-color: rgb(172, 97, 0);
+  display: inline-block;
+  margin: 10px;
+  padding: 30px;
+  justify-content: center;
+}
+
+.bloque {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 40px;
+  animation-duration: 1s;
+}
+.bloque .borde {
+  border-radius: 30px;
+  padding: 20px;
+  margin: 20px;
+  border-style: outset;
+  border-color: rgb(13, 199, 206);
+}
+.bloque .contacto-tamanio {
+  display: grid;
+}
+.bloque .mapa-tamanio {
+  padding: 5vh;
+  height: 30rem;
+}
+.bloque .sobre-nosotros {
+  padding: 10px;
+  color: rgb(172, 97, 0);
+}
+.bloque .titulo {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bold;
+}
+.bloque .cuerpo {
+  text-align: left;
+  font-size: x-large;
+}
+
+/* Carrito de compras */
+.prod {
+  margin-top: 1vh;
+  text-align: center;
+}
+.prod .imagenProd {
+  width: 100%;
+  border-style: dotted;
+  border-color: rgb(172, 97, 0);
+  display: inline-block;
+  margin: 10px;
+  padding: 30px;
+  transition: 1s;
+}
+.prod .imagenProd:hover {
+  width: 105%;
+}
+
+.tituloProd {
+  text-align: center;
+  font-size: 18px;
+  color: rgb(13, 199, 206);
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.item-details {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 15px;
+}
+.item-details .precioProd {
+  color: rgb(172, 97, 0);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+  transition: 1s;
+  opacity: 0.2;
+}
+.item-details .precioProd:hover {
+  opacity: 3;
+}
+.item-details .card__button {
+  background: rgb(13, 199, 206);
+  border-radius: 10px;
+  border-style: dotted;
+  width: 65%;
+  border-color: rgb(172, 97, 0);
+  color: white;
+  font-weight: 600;
+  padding: 12px 0;
+}
+.item-details .card__button:hover {
+  opacity: 2;
+  color: black;
+  width: 75%;
+}
+
+.itemsCarrito {
+  margin: 10px;
+  padding: 30px;
+}
+
+.shopping-cart-total {
+  display: flex;
+  min-height: 96px;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.flex, #imageTittle .redSocial, #imageTittle .tittle {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+}
+
+.colorRedes-whatsapp {
+  background-color: green;
+  text-align: center;
+}
+
+.colorRedes-mail {
+  background-color: red;
+  text-align: center;
+}
+
+.colorRedes-instagram {
+  background-color: purple;
+  text-align: center;
+}
+
+/* header + menu */
+header {
+  background-image: linear-gradient(to right, rgb(153, 114, 59) 60%, white);
+  display: flex;
+  align-items: flex-end;
+}
+header nav li {
+  margin: 0%;
+  padding: 10px 13px;
+  border: 1px solid white;
+  background-color: rgb(245, 235, 220);
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: larger;
+  list-style-type: none;
+}
+header nav li:hover {
+  border-left: 3px solid rgb(13, 199, 206);
+  border-bottom: 5px solid rgb(13, 199, 206);
+  color: white;
+  list-style-type: none;
+}
+header nav li h1 a {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* fin header + menu */
+body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  min-width: 290px;
+}
+
+/* banner pages */
+#imageTittle {
+  background-image: url(../img/showroom.png);
+  background-repeat: repeat-x;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  padding-top: 8vh;
+  padding-bottom: 8vh;
+}
+#imageTittle .tittle {
+  font-size: x-large;
+  padding: 2vh;
+  background-color: rgba(13, 199, 206, 0.9);
+  color: rgb(172, 97, 0);
+}
+#imageTittle .redSocial {
+  /* conocenos.html */
+  display: flex;
+  background-color: rgba(13, 199, 206, 0.9);
+  color: white;
+  width: 100%;
+}
+#imageTittle .redSocial a {
+  text-decoration: none;
+  color: white;
+  transition: all 300ms ease;
+}
+#imageTittle .redSocial a:hover {
+  color: rgb(13, 199, 206);
+}
+#imageTittle .redSocial .tamBoxRedes {
+  margin: 3%;
+  width: 10vw;
+  height: 10vh;
+  min-width: 80px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seccion {
+  margin: 30px;
+  justify-content: center;
+  font-size: x-large;
+  padding: 1vh;
+  text-align: center;
+  color: rgb(13, 199, 206);
+  border-style: dashed;
+  border-color: rgb(172, 97, 0);
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+/* fin banner pages */
+footer {
+  color: rgb(13, 199, 206);
+  text-align: center;
+  position: fixed;
+  display: contents;
+}
+
+/*# sourceMappingURL=estilos.css.map */
