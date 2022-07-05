@@ -50,28 +50,32 @@
         </section>
         <!-- formulario Contacto -->
         <section class="animate__animated animate__bounceInRight bloque">
-            <div class="col-12 col-md-8 col-lg-8 borde">
+            <div id="respuesta" class="col-12 col-md-8 col-lg-8 borde">
                 <h1>Escribinos</h1>
                 <br>
                 <form> 
                     <p class="contacto-tamanio">
                         <label for="correo">Email:</label>
                         <br>
-                        <input type="email" name="correo"> 
+                        <input id="email" type="email" name="correo"> 
+                    </p>
+                    <p class="contacto-tamanio">
+                        <label for="name">Nombre:</label>
+                        <br>
+                        <input id="nombre" type="text" name="name"> 
                     </p>                   
                     <p class="contacto-tamanio">
-
                         <label for="telefono">Telefono:</label>
                         <br>
-                        <input type="text" name="telefono">  
+                        <input id="telefono" type="text" name="telefono">  
                     </p>                    
                     <p class="contacto-tamanio">
                         <label for="comentarios">Comentarios:</label> 
                         <br>
-                        <textarea name="mensaje" rows="6" cols="25"></textarea>
+                        <textarea id="mensaje" name="mensaje" rows="6" cols="25"></textarea>
                     </p>
                     <br>
-                    <input type="submit" value="enviar formulario">
+                    <input id="enviar" type="submit" value="enviar formulario">
                     <input type="reset" value="Limpiar formulario">                  
                 </form>    
             </div>
@@ -81,5 +85,6 @@
         <h2>Luminati Decoracion</h2>
     </footer>
     <script src="../js/bootstrap.js"></script> <!-- javaScript local -->
+    <script src="../js/formContacto.js"></script> <!-- javaScript personalizado -->
 </body>
 </html>
