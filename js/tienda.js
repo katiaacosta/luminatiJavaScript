@@ -3,6 +3,8 @@
 const sumarBtn = document.querySelectorAll('.sumarBtn'); //añadir al carrito
 const comprarBtn = document.querySelector('.comprarBtn'); //comprar
 const prodCarrito = document.querySelector('.prodCarrito');
+// const agregarAlCarrito = document.getElementsByClassName('.sumarBtn'); // boton para el toastify
+
 
 //Capturear interacción del usuario - forEach para colocar evento onclick
 
@@ -22,6 +24,15 @@ function sumarBtnClickeado(e) {
   const tituloProd = prod.querySelector('.tituloProd').textContent;
   const imagenProd = prod.querySelector('.imagenProd').src;
 
+  //Muestro item Agregado al carrito con Toastify
+  Toastify({
+    text: tituloProd + ' agregado exitosamente',
+    duration: 1000,
+    gravity: 'top',
+    position: 'center',
+    className: 'itemAgregado'
+  }).showToast();
+
   sumarAlCarrito(tituloProd, precioProd, imagenProd);
 }
 
@@ -36,8 +47,6 @@ function sumarAlCarrito(tituloProd, precioProd, imagenProd) {
         '.cantidadDeCadaProdEnCarritoNum'
       );
       cantidadProds.value++;
-        //bootstrap - Cartel de incremento de producto
-      $('.toast').toast('show');
       actualizarTotalCarrito();
       return;
     }
@@ -117,5 +126,15 @@ function cambiarCantidad(event) {
 
 function comprarBtnClickeado() {
   prodCarrito.innerHTML = '';
+
+  //Muestro item Agregado al carrito con Toastify
+  Toastify({
+    text: "Compra realizada con exito",
+    duration: 1000,
+    gravity: 'bottom',
+    position: 'center',
+    className: 'itemAgregado'
+  }).showToast();
+
   actualizarTotalCarrito();
 }

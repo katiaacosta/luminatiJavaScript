@@ -121,6 +121,12 @@
   align-items: flex-start;
 }
 
+.itemAgregado {
+  background: rgb(13, 199, 206);
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .flex, #imageTittle .redSocial, #imageTittle .tittle {
   justify-content: center;
   align-items: center;
