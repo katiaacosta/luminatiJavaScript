@@ -12,7 +12,7 @@
         border-style: outset;
         border-color: rgb(13, 199, 206);     
     }
-    
+
     .contacto-tamanio{
         display: grid; 
     }
@@ -38,4 +38,12 @@
         font-size: x-large;
     }
     
+}
+
+// loader de carga de productos
+.loader-hide{
+    display:none;
+}
+.loader-show{
+    display: block;
 }

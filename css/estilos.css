@@ -49,6 +49,14 @@
   font-size: x-large;
 }
 
+.loader-hide {
+  display: none;
+}
+
+.loader-show {
+  display: block;
+}
+
 /* Carrito de compras */
 .prod {
   margin-top: 1vh;

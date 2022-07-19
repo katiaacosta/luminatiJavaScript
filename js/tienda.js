@@ -3,8 +3,9 @@
 const sumarBtn = document.querySelectorAll('.sumarBtn'); //añadir al carrito
 const comprarBtn = document.querySelector('.comprarBtn'); //comprar
 const prodCarrito = document.querySelector('.prodCarrito');
-// const agregarAlCarrito = document.getElementsByClassName('.sumarBtn'); // boton para el toastify
-
+const formCompra = document.getElementById('formCompra'); 
+const enviarBtn = document.getElementById('enviar');
+let respuesta; //luego de comprar, muestra form para llenar datos y luego muestra mensaje de exito.
 
 //Capturear interacción del usuario - forEach para colocar evento onclick
 
@@ -97,7 +98,7 @@ function sumarAlCarrito(tituloProd, precioProd, imagenProd) {
 function actualizarTotalCarrito() {
   let total = 0;
   const precioFinalCarrito = document.querySelector('.precioFinalCarrito');
-  const itemsCarrito = document.querySelectorAll('.itemCarrito');
+  const itemsCarrito = document.querySelectorAll('.itemCarrito'); // itemCarrito
 
   //Recorre el carrito
   itemsCarrito.forEach((itemCarrito) => {
@@ -125,16 +126,116 @@ function cambiarCantidad(event) {
 }
 
 function comprarBtnClickeado() {
-  prodCarrito.innerHTML = '';
-
-  //Muestro item Agregado al carrito con Toastify
-  Toastify({
-    text: "Compra realizada con exito",
-    duration: 1000,
-    gravity: 'bottom',
-    position: 'center',
-    className: 'itemAgregado'
-  }).showToast();
-
+  // prodCarrito.innerHTML = '';
   actualizarTotalCarrito();
+  formCompra.innerHTML = '';
+
+  //Modifica el DOM en la sección de "tu carrito", una vez que compra
+  let divForm = document.createElement('div');
+  const formCarrito = `
+  <section class="bloque">
+      <div id="respuesta" class="col-12 col-md-8 col-lg-8 borde">
+          <h1>Completa tus datos</h1>
+          <br>
+          <form> 
+              <p class="contacto-tamanio">
+                  <label for="correo">Email:</label>
+                  <br>
+                  <input id="email" type="email" name="correo"> 
+              </p>
+              <p class="contacto-tamanio">
+                  <label for="name">Nombre:</label>
+                  <br>
+                  <input id="nombre" type="text" name="name"> 
+              </p>                   
+              <p class="contacto-tamanio">
+                  <label for="telefono">Telefono:</label>
+                  <br>
+                  <input id="telefono" type="text" name="telefono">  
+              </p> 
+              <p class="contacto-tamanio">
+                  <label for="provincia">Provincia:</label>
+                  <br>
+                  <input id="provincia" type="text" name="provincia">  
+              </p> 
+              <p class="contacto-tamanio">
+                  <label for="localidad">Localidad:</label>
+                  <br>
+                  <input id="localidad" type="text" name="localidad">  
+              </p> 
+              <p class="contacto-tamanio">
+                  <label for="Direccion">Direccion:</label>
+                  <br>
+                  <input id="direccion" type="text" name="direccion">  
+              </p>  
+              <p class="contacto-tamanio">   
+                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Forma de pago:</label>
+                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                  <option selected>Seleccione...</option>
+                  <option value="Efectivo">Efectivo</option>
+                  <option value="Transferencia">Transferencia</option>
+                </select>
+              </p>             
+              <p class="contacto-tamanio">
+                  <label for="comentarios">Dejanos un comentario adicional:</label> 
+                  <br>
+                  <textarea id="mensaje" name="mensaje" rows="4" cols="25"></textarea>
+              </p>
+              <br>  
+              <input type="submit" value="Finalizar Compra">
+              <input type="reset" value="Cancelar">                  
+          </form>    
+      </div>
+  </section>  
+    `;
+  divForm.innerHTML = formCarrito;
+  formCompra.append(divForm);
+  
+  
+  //Fetch---------------------
+
+  respuesta = document.getElementById("respuesta");
+  respuesta.addEventListener("submit", finalizoCompra)
+
 }
+
+function finalizoCompra(e){
+  e.preventDefault();
+  let email = document.getElementById('email').value;
+  let nombre = document.getElementById('nombre').value;
+  let telefono = document.getElementById('telefono').value;
+  let provincia = document.getElementById('provincia').value;
+  let localidad = document.getElementById('localidad').value;
+  let direccion = document.getElementById('direccion').value;
+  let pago = document.getElementById('inlineFormCustomSelectPref').value;
+  let mensaje = document.getElementById('mensaje').value;
+  const data = {
+    //elijo que quiero mostrar
+    tittle: email,
+    body: nombre, telefono, provincia, localidad, direccion, pago, mensaje,
+  }
+  //configuro el fetch
+  fetch('https://jsonplaceholder.typicode.com/posts',{
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+    }
+  })
+  .then((response) => response.json())
+  .then((data) =>{
+    console.log(data)
+  })
+
+  respuesta.innerHTML= '';
+  let div = document.createElement("div");
+        div.innerHTML = `
+          <p>Perfecto ${nombre}, recibimos tu compra! Nos estaremos contactando a la brevedad al mail ${email} o por whatsapp al ${telefono}.</p>
+        `;
+  respuesta.appendChild(div);
+
+
+  //----------fin fetch
+
+}
+
